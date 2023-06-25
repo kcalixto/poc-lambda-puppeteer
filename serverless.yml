@@ -1,21 +1,21 @@
 service: poc-lambda-puppeteer
 
-custom:
-  NodeEnv:
-    dev: development
-    prd: production
-
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
   stage: poc
   region: sa-east-1
   memorySize: 2048
   timeout: 90
   logRetentionInDays: 1
 
+  environment:
+    NODE_ENV: "production"
+
 functions:
   handler:
     handler: index.runner
     layers:
-      - !Sub 'arn:aws:lambda:sa-east-1:764866452798:layer:chrome-aws-lambda:22'
+      - !Sub 'arn:aws:lambda:sa-east-1:764866452798:layer:chrome-aws-lambda:31'
+    events:
+      - schedule: rate(1 minute)
