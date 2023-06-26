@@ -17,9 +17,17 @@ export const runner = async () => {
         console.log("typing")
 
         await page.type(inputFieldSelector, "oiee")
-
         console.log("typed successfully")
-        await page.click(".gNO89b", { delay: 1000 })
+
+        console.log("pressing enter")
+        await page.keyboard.press('Enter');
+
+        // const buttonSelector = ".gNO89b"
+        // await page.waitForSelector(buttonSelector)
+        // console.log("found search button")
+
+        // await page.click(buttonSelector, { delay: 1500 })
+        // console.log("clicked search button")
 
         console.log("waiting for navigation...")
         await page.waitForNavigation()
