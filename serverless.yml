@@ -17,5 +17,5 @@ functions:
     handler: index.runner
     layers:
       - !Sub 'arn:aws:lambda:sa-east-1:764866452798:layer:chrome-aws-lambda:31'
-    events:
-      - schedule: rate(1 minute)
+    # events:
+    #   - schedule: rate(1 hour)
